@@ -75,9 +75,22 @@ def fetch_all_reviews():
             })
 
     # sort by rating descending so best reviews show first
-    all_reviews = [r for r in all_reviews if r["rating"] >= 4]
+all_reviews = [r for r in all_reviews if r["rating"] >= 4]
     all_reviews.sort(key=lambda x: x["rating"], reverse=True)
     summary["reviews"] = all_reviews
+
+    # combined rating across all locations, weighted by review count
+    total_weighted = 0
+    total_count = 0
+    for loc in summary["locations"]:
+        if loc["rating"] and loc["total_ratings"]:
+            total_weighted += loc["rating"] * loc["total_ratings"]
+            total_count += loc["total_ratings"]
+
+    summary["combined"] = {
+        "rating": round(total_weighted / total_count, 1) if total_count else 0,
+        "total_ratings": total_count
+    }
 
     print(f"Total reviews fetched: {len(all_reviews)}")
     return summary
