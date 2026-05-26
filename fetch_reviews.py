@@ -75,7 +75,7 @@ def fetch_all_reviews():
             })
 
     # sort by rating descending so best reviews show first
-all_reviews = [r for r in all_reviews if r["rating"] >= 4]
+    all_reviews = [r for r in all_reviews if r["rating"] >= 4]
     all_reviews.sort(key=lambda x: x["rating"], reverse=True)
     summary["reviews"] = all_reviews
 
