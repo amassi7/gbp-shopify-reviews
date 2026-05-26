@@ -11,17 +11,20 @@ LOCATIONS = [
     {
         "place_id": "ChIJTQ929KwuDogRD_8ndlex-p0",
         "name": "47th Street",
-        "address": "205 E 47th St, Chicago"
+        "address": "205 E 47th St, Chicago",
+        "google_url": "https://maps.app.goo.gl/DR7FrbbE1JtoBs6CA"
     },
     {
         "place_id": "ChIJ81moTQAzDogRM_kPF4pi6_4",
         "name": "Kedzie",
-        "address": "800 N Kedzie Ave, Chicago"
+        "address": "800 N Kedzie Ave, Chicago",
+        "google_url": "https://maps.app.goo.gl/qNgC6zANb64PPfpV7"
     },
     {
         "place_id": "ChIJ5f3f4PclDogRONXA5lZyr4g",
         "name": "87th Street",
-        "address": "205 W 87th St, Chicago"
+        "address": "205 W 87th St, Chicago",
+        "google_url": "https://maps.app.goo.gl/841fAKGgRrx3kcxX7"
     }
 ]
 
@@ -72,6 +75,7 @@ def fetch_all_reviews():
                 "text": review.get("text"),
                 "time": review.get("relative_time_description"),
                 "location": location["name"]
+                "google_url": location["google_url"]
             })
 
     # sort by rating descending so best reviews show first
