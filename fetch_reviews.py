@@ -74,7 +74,7 @@ def fetch_all_reviews():
                 "rating": review.get("rating"),
                 "text": review.get("text"),
                 "time": review.get("relative_time_description"),
-                "location": location["name"]
+                "location": location["name"],
                 "google_url": location["google_url"]
             })
 
